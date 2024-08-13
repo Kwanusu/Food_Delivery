@@ -1,14 +1,15 @@
-import mongoose from "mongoose";
+import mongoose, { InferSchemaType } from "mongoose";
 
 
 const menuItemsSchema = new mongoose.Schema({
     name: { type: String, required: true},
     price: { type: Number, required: true},
 });
+export type MenuItemType = InferSchemaType<typeof menuItemsSchema>;
 
-const restuarantSchema = new mongoose.Schema({
+const restaurantSchema = new mongoose.Schema({
     user: {type: mongoose.Schema.Types.ObjectId, ref: "User" },
-    restuarantName: { type: String, required: true },
+    restaurantName: { type: String, required: true },
     city: { type: String, required: true },
     country: { type: String, required: true },
     deliveryPrice: { type: Number, required: true },
@@ -19,5 +20,5 @@ const restuarantSchema = new mongoose.Schema({
     lastUpdated: { type: Date, required: true},
 });
 
-const Restuarant = mongoose.model("Restuarant", restuarantSchema);
-export default Restuarant; 
+const Restaurant = mongoose.model("Restaurant", restaurantSchema);
+export default Restaurant; 

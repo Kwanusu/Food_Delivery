@@ -22,8 +22,8 @@ export const validateMyUserRequest = [
     handleValidationErrors,
 ]
 
-export const validateMyRestuarantRequest = [
-    body("restuarantName").notEmpty().withMessage("Restuarant name is required"),
+export const validateMyRestaurantRequest = [
+    body("restaurantName").notEmpty().withMessage("Restaurant name is required"),
     body("city").notEmpty().withMessage("City is required"),
     body("country").notEmpty().withMessage("Country is required"),
     body("deliveryPrice")
