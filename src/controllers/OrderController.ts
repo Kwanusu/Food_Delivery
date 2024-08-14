@@ -45,6 +45,7 @@ const stripeWebhookHandler = async (req: Request, res: Response) => {
       sig as string,
       STRIPE_ENDPOINT_SECRET
     );
+    console.log(sig)
   } catch (error: any) {
     console.log(error);
     return res.status(400).send(`Webhook error: ${error.message}`);
@@ -126,7 +127,7 @@ const createLineItems = (
 
     const line_item: Stripe.Checkout.SessionCreateParams.LineItem = {
       price_data: {
-        currency: "usd",
+        currency: "kes",
         unit_amount: menuItem.price,
         product_data: {
           name: menuItem.name,
@@ -156,7 +157,7 @@ const createSession = async (
           type: "fixed_amount",
           fixed_amount: {
             amount: deliveryPrice,
-            currency: "usd",
+            currency: "kes",
           },
         },
       },
